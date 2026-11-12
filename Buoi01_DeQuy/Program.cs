@@ -1,27 +1,71 @@
-using System;
+// Bài 1
+static long Tong(int n)
+{
+    if (n == 1)
+        return 1;
 
-Console.OutputEncoding = System.Text.Encoding.UTF8;
-Console.Write("Nhập n nguyên dương: ");
-int n = int.Parse(Console.ReadLine()!);
-Console.Write("Nhập x để tính x^n: ");
-double x = double.Parse(Console.ReadLine()!);
+    return Tong(n - 1) + n;
+}
 
-Console.WriteLine($"Bài 1: {Tong(n)}");
-Console.WriteLine($"Bài 2: {TongBinhPhuong(n)}");
-Console.WriteLine($"Bài 3: {TongNghichDao(n):F6}");
-Console.WriteLine($"Bài 4: {LuyThua(x, n):F6}");
-Console.WriteLine($"Bài 5: {UocLeMax(n)}");
-Console.Write("Nhập a: "); int a = int.Parse(Console.ReadLine()!);
-Console.Write("Nhập b: "); int b = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Bài 6: UCLN = {Ucln(a, b)}");
-Console.WriteLine($"Bài 7: {SoChuSo(n)} chữ số");
-Console.WriteLine($"Bài 8: {TongCan(1, n):F6}");
+// Bài 2
+static long TongBinhPhuong(int n)
+{
+    if (n == 1)
+        return 1;
 
-static long Tong(int n) => n == 1 ? 1 : Tong(n - 1) + n;
-static long TongBinhPhuong(int n) => n == 1 ? 1 : TongBinhPhuong(n - 1) + (long)n * n;
-static double TongNghichDao(int n) => n == 1 ? 1 : TongNghichDao(n - 1) + 1.0 / n;
-static double LuyThua(double x, int n) => n == 0 ? 1 : x * LuyThua(x, n - 1);
-static int UocLeMax(int n) => n % 2 == 1 ? n : UocLeMax(n / 2);
-static int Ucln(int a, int b) => b == 0 ? a : Ucln(b, a % b);
-static int SoChuSo(int n) => n < 10 ? 1 : SoChuSo(n / 10) + 1;
-static double TongCan(int i, int n) => i == n ? Math.Sqrt(n) : Math.Sqrt(i + TongCan(i + 1, n));
+    return TongBinhPhuong(n - 1) + (long)n * n;
+}
+
+// Bài 3
+static double TongNghichDao(int n)
+{
+    if (n == 1)
+        return 1.0;
+
+    return TongNghichDao(n - 1) + 1.0 / n;
+}
+
+// Bài 4
+static double LuyThua(double x, int n)
+{
+    if (n == 0)
+        return 1;
+
+    return x * LuyThua(x, n - 1);
+}
+
+// Bài 5
+static int UocLeMax(int n)
+{
+    if (n % 2 == 1)
+        return n;
+
+    return UocLeMax(n / 2);
+}
+
+// Bài 6
+static int Ucln(int a, int b)
+{
+    if (b == 0)
+        return a;
+
+    return Ucln(b, a % b);
+}
+
+// Bài 7
+static int SoChuSo(int n)
+{
+    if (n < 10)
+        return 1;
+
+    return SoChuSo(n / 10) + 1;
+}
+
+// Bài 8
+static double TongCan(int i, int n)
+{
+    if (i == n)
+        return Math.Sqrt(n);
+
+    return Math.Sqrt(i + TongCan(i + 1, n));
+}
