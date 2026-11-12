@@ -1,7 +1,7 @@
 # Bài tập CTDL&GT – 211131
 - Họ tên: Phạm Nhật An
 - MSV: 10125003
-- Lớp: 10125O.11
+- Lớp: 10125O.1
 
 | Buổi | Nội dung | Thư mục | Trạng thái |
 |---|---|---|---|
